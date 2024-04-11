@@ -7,10 +7,10 @@
 describe('Intercept Demo', () => {
 
     it('Intitial Validation', () => {
-        cy.visit('http://localhost:8888/#/')
+        cy.visit('http://localhost:3000/')
         cy.get('#todo-list li')
         .should('have.length', 2)
-        .and('contain', 'test')
+        .and('contain', 'buy milk')
         .and('contain', 'wash dishes')
     });
 
@@ -20,7 +20,7 @@ describe('Intercept Demo', () => {
             fixture: 'intercept/interceptFixture.json'
         }).as('getTodos-Fixture')
 
-        cy.visit('http://localhost:8888/#/')
+        cy.visit('http://localhost:3000/')
 
         cy.get('#todo-list li')
         .should('have.length', 3)
@@ -42,7 +42,7 @@ describe('Intercept Demo', () => {
             body: stubExample
         })
 
-        cy.visit('http://localhost:8888/#/')
+        cy.visit('http://localhost:3000/')
 
         cy.get('div label').should('have.css', 'text-decoration', 'line-through solid rgb(217, 217, 217)')
 
